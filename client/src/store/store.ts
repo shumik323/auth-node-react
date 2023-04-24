@@ -38,7 +38,7 @@ export default class store {
                 callback();
 
                 toast.success('🦄 You are logged in!', {
-                    autoClose: 2000,
+                    autoClose: 1000,
                 });
             }
         } catch (err) {
@@ -59,7 +59,7 @@ export default class store {
                 callback();
 
                 toast.success('🦄 You are registered, now you can log in!', {
-                    autoClose: 2000,
+                    autoClose: 1000,
                 })
             }
         } catch (err) {
@@ -77,7 +77,7 @@ export default class store {
             this.setUser({} as IUser);
 
             toast.success('🦄 You are logged out!', {
-                autoClose: 2000,
+                autoClose: 1000,
             })
         } catch (err) {
             console.error(err.response?.data?.message, 'logout');
@@ -87,7 +87,7 @@ export default class store {
     async checkAuth(): Promise<void> {
         this.setLoading(true);
         try {
-            const response = await axios.get<AuthResponse>('http://localhost:5000/api/refresh', {
+            const response = await axios.get<AuthResponse>(`${process.env.REACT_APP_API_URL}/refresh`, {
                 withCredentials: true,
             });
 

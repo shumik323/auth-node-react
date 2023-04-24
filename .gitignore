@@ -1,16 +1,9 @@
 .DS_Store
 node_modules
-/dist
 .npmrc
 
 /tests/e2e/videos/
 /tests/e2e/screenshots/
-
-
-# local env files
-.env
-.env.local
-.env.*.local
 
 # Log files
 npm-debug.log*
